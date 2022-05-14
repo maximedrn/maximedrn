@@ -1,16 +1,14 @@
-### Hi there 👋
+<h1 align="center">Hi! 👋 <br />I'm Maxime 🙂</h1>
 
-<!--
-**maximedrn/maximedrn** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### Creator from France.
+- 🎓 Presently in high school studying mathematics and computer science.
+- 🚀 I'm currently learning **cryptocurrencies**, **NFTs** and **Metaverse**.
+- 📫 Contact me on Telegram ([@maximedrn](https://t.me/maximedrn)) or [maxime_drean@yahoo.com](mailto:maxime_drean@yahoo.com).
 
-Here are some ideas to get you started:
+### Languages and Tools
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+![](https://skillicons.dev/icons?i=html,css,js,nodejs,react,flutter,java,androidstudio,py,pytorch&theme=dark)<img src="https://user-images.githubusercontent.com/91475935/168442353-995d91ee-cc1c-4b99-9a02-5057721a2bd2.png" height="48px" />![](https://skillicons.dev/icons?i=mysql,bash,vscode&theme=dark)
+
+### Statistics
+
+<img align="" height="137px" src="https://github-readme-stats.vercel.app/api?username=maximedrn&hide_title=true&hide_border=true&show_icons=true&count_private=true&line_height=21&theme=dracula" /><img align="" height="137px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=maximedrn&hide_title=true&hide_border=true&layout=compact&hide=html&theme=dracula" />
