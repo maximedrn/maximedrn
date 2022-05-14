@@ -9,7 +9,8 @@
 
 ## Languages and tools used:
 
-![](https://skillicons.dev/icons?i=html,css,js,nodejs,react,flutter,java,androidstudio,py,pytorch&theme=dark)<img src="https://user-images.githubusercontent.com/91475935/168442353-995d91ee-cc1c-4b99-9a02-5057721a2bd2.png" height="48px" />![](https://skillicons.dev/icons?i=mysql,bash,vscode&theme=dark)
+![](https://skillicons.dev/icons?i=html,css,js,nodejs,react,flutter,java)  
+![](https://skillicons.dev/icons?i=androidstudio,py,pytorch&theme=dark)<img src="https://user-images.githubusercontent.com/91475935/168442353-995d91ee-cc1c-4b99-9a02-5057721a2bd2.png" height="48px" />![](https://skillicons.dev/icons?i=mysql,bash,vscode&theme=dark)
 
 ## My Github statistics:
 
