@@ -2,7 +2,7 @@
 
 # Hi! 👋 <br />I'm Maxime 🙂
 
-<img align="right" width="35%" src="https://media.giphy.com/media/fkZukR450RQ1qnGaq9/giphy.gif" />
+<!-- <img align="right" width="35%" src="https://media.giphy.com/media/fkZukR450RQ1qnGaq9/giphy.gif" /> -->
 
 
 ## <img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="20px"> Creator from France
