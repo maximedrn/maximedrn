@@ -40,6 +40,6 @@
 
 ## My Github statistics:
 
-<img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api?username=maximedrn&hide_title=true&hide_border=true&show_icons=true&count_private=true&line_height=21&theme=dracula" /> <img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=maximedrn&hide_title=true&hide_border=true&layout=compact&hide=html&theme=dracula" />
+<img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=maximedrn&hide_title=true&hide_border=true&layout=compact&hide=html&theme=dark#gh-dark-mode-only" /> <img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api?username=maximedrn&hide_title=true&hide_border=true&show_icons=true&count_private=true&line_height=21&theme=dark#gh-dark-mode-only" />
 
 </div>
