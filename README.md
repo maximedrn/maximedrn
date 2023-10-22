@@ -1,11 +1,11 @@
 <div align="center">
 
-# Hi! 👋 <br />I'm Maxime 🙂
+<h1>Hi! 👋 <br />I'm Maxime 🙂</h1>
 
 <!-- <img align="right" width="35%" src="https://media.giphy.com/media/fkZukR450RQ1qnGaq9/giphy.gif" /> -->
 
 
-## Creator from France
+<h2>Creator from France</h2>
 
 🎓 Presently in high school studying mathematics and computer science.  
 🚀 I'm currently learning **Cryptocurrencies**, **NFTs** and **Metaverse**.  
@@ -32,13 +32,13 @@
 </a>
 
 
-## Languages and tools used:
+<h2>Languages and tools used:</h2>
 
 ![](https://skillicons.dev/icons?i=html,css,js,nodejs,react,flutter,java&theme=dark)  
 ![](https://skillicons.dev/icons?i=androidstudio,py&theme=dark)<img src="https://user-images.githubusercontent.com/91475935/168442353-995d91ee-cc1c-4b99-9a02-5057721a2bd2.png" height="48px" />![](https://skillicons.dev/icons?i=pytorch,mysql,bash,vscode&theme=dark)
 
 
-## My Github statistics:
+<h2>My Github statistics:</h2>
 
 <img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api/top-langs/?username=maximedrn&hide_title=true&hide_border=true&layout=compact&hide=html&theme=dark#gh-dark-mode-only" /> <img align="" height="115.5px" src="https://github-readme-stats.vercel.app/api?username=maximedrn&hide_title=true&hide_border=true&show_icons=true&count_private=true&line_height=21&theme=dark#gh-dark-mode-only" />
 
