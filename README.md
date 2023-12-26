@@ -5,5 +5,5 @@
 
 ### Languages and tools I use
 
-![](https://skillicons.dev/icons?i=html,css,js,nodejs,react,flutter,java&theme=dark)  
-![](https://skillicons.dev/icons?i=androidstudio,py,selenium,pytorch,mysql,bash,vscode&theme=dark)
+![](https://skillicons.dev/icons?i=html,css,php,mysql,sqlite,js,nodejs,react,flutter&theme=dark)  
+![](https://skillicons.dev/icons?i=java,androidstudio,py,selenium,pytorch,bash,git,vscode,aws&theme=dark)
