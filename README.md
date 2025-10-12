@@ -21,7 +21,4 @@ I concentrate on creating scalable and effective solutions and am constantly wil
 
 ---
 
-<p>
-    <img src="https://metrics.lecoq.io/maximedrn?template=classic&repositories.forks=true&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&config.timezone=Europe%2FParis&config.twemoji=true" hspace="24">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=maximedrn&locale=en&layout=donut-vertical&theme=transparent" hspace="24">
-</p>
+![](https://metrics.lecoq.io/maximedrn?template=classic&repositories.forks=true&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&config.timezone=Europe%2FParis&config.twemoji=true)
