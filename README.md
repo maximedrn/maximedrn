@@ -1,9 +1,27 @@
-# Hi! 👋
+## Behind the code ✨
 
-**I'm Maxime, a developper and student from France.**  
-🎓 Presently in high school studying mathematics and computer science.
+👋 Hello I'm Maxime, a French 🇫🇷 developer and tech enthusiast.  
+🎓 **Master's student in Artificial Intelligence** with a background in mathematics and computer science.  
+⚙️ Enthusiastic about developing relevant AI solutions and building effective software.  
+💡 I'm interested in AI, decentralized technologies, cryptocurrency and finance.
 
-### Languages and tools I use
+## What I work with 🧬
 
-![](https://skillicons.dev/icons?i=html,css,php,mysql,sqlite,js,nodejs,react,flutter&theme=dark)  
-![](https://skillicons.dev/icons?i=java,androidstudio,py,selenium,pytorch,bash,git,vscode,aws&theme=dark)
+I work across web, mobile, and AI development, with experience in full-stack, machine learning, and cloud environments.  
+I concentrate on creating scalable and effective solutions and am constantly willing to learn new things.  
+
+![](https://skillicons.dev/icons?i=html,css,php,nodejs,javascript,typescript,react,nextjs,vuejs,electron,express,graphql,tailwindcss,babel,grafana,c,cpp,rust,go,java,kotlin,androidstudio,maven,flutter,python,flask,django,pytorch,tensorflow,selenium,qt,anaconda,aws,googlecloud,cloudflare,vercel,docker,bash,prisma,supabase,redis,mongodb,postgresql,sqlite,mysql,git,vscode,notion,figma,apple,windows,ubuntu,debian,arch&theme=dark)
+
+## Development setup 🧰
+
+💻 I work across macOS, Windows, and Linux environments to stay flexible and adapt to different workflows and technologies.  
+
+➡️ **MacBook Pro (M4)** - my main machine for AI, web, and mobile development.  
+➡️ **Windows PC** - powered by a Ryzen 7 7800X3D, Radeon RX 7900XT, and 64 GB RAM.  
+
+---
+
+<p>
+    <img src="https://metrics.lecoq.io/maximedrn?template=classic&repositories.forks=true&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&config.timezone=Europe%2FParis&config.twemoji=true" hspace="24">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=maximedrn&locale=en&layout=donut-vertical&theme=transparent" hspace="24">
+</p>
