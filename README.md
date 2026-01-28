@@ -18,7 +18,3 @@ I concentrate on creating scalable and effective solutions and am constantly wil
 
 ➡️ **MacBook Pro (M4)** - my main machine for AI, web, and mobile development.  
 ➡️ **Windows PC** - powered by a Ryzen 7 7800X3D, Radeon RX 7900XT, and 64 GB RAM.  
-
----
-
-![](https://metrics.lecoq.io/maximedrn?template=classic&repositories.forks=true&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=false&base.hireable=false&base.skip=false&config.timezone=Europe%2FParis&config.twemoji=true)
