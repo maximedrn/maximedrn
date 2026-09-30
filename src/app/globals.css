@@ -20,9 +20,9 @@
 }
 
 :root {
-  --background: #fcfcfc;
+  --background: #ffffff;
   --foreground: #1c1c1e;
-  --card: #f4f4f5;
+  --card: #f6f8fa;
   --primary: #4b1822;
   --muted-foreground: #2c2c2e;
   --border: #d8dee4;
@@ -31,9 +31,9 @@
 }
 
 [data-theme="dark"] {
-  --background: #1c1c1e;
+  --background: #0d1117;
   --foreground: #fcfcfc;
-  --card: #141416;
+  --card: #151b23;
   --primary: #c96a79;
   --muted-foreground: #e8e8ea;
   --border: #30363d;
