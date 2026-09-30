@@ -1,0 +1,13 @@
+pre-commit:
+  piped: true
+  jobs:
+    - name: lint
+      run: bun run lint:check
+    - name: cspell
+      run: bun run cspell
+    - name: typecheck
+      run: bun run typecheck
+    - name: test
+      run: bun run test
+    - name: generate
+      run: bun run generate

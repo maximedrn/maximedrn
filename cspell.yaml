@@ -1,0 +1,31 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+language: en
+useGitignore: true
+files:
+  - "**/*.{ts,tsx,js,mjs,cjs,json,css,md,yaml,yml,grit}"
+  - README.md.j2
+ignorePaths:
+  - .git/**
+  - assets/**
+  - patches/**
+words:
+  - Colourspace
+  - Cplusplus
+  - datauri
+  - Dréan
+  - Elems
+  - EXIF
+  - Filenaming
+  - greyscale
+  - huggingface
+  - lefthook
+  - Maxime
+  - maximedrn
+  - maximedrean
+  - Nextdotjs
+  - Numpy
+  - Qwik
+  - renderable
+  - Solana
+  - turbopack
