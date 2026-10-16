@@ -10,6 +10,7 @@ import {
 } from "@test/fixtures.constants.ts";
 import { DOMParser, type Element, onErrorStopParsing } from "@xmldom/xmldom";
 import { Effect, Option, type Scope } from "effect";
+import Sharp, { type OutputInfo } from "sharp";
 
 const temporaryDirectory: Effect.Effect<string, never, Scope.Scope> =
   Effect.acquireRelease(
@@ -24,7 +25,7 @@ const temporaryDirectory: Effect.Effect<string, never, Scope.Scope> =
 
 const parseXml = (markup: string): Element =>
   Option.getOrThrowWith(
-    Option.fromNullable(
+    Option.fromNullishOr(
       new DOMParser({ onError: onErrorStopParsing }).parseFromString(
         markup,
         Xml.mimeType,
@@ -35,7 +36,7 @@ const parseXml = (markup: string): Element =>
 
 const attribute = (element: Element, name: string): string =>
   Option.getOrThrowWith(
-    Option.fromNullable(element.getAttribute(name)),
+    Option.fromNullishOr(element.getAttribute(name)),
     (): Error => new Error(FixtureErrors.attribute(name)),
   );
 
@@ -52,4 +53,19 @@ const decodeImage = (source: string): Buffer => {
   throw new Error(FixtureErrors.dataUri);
 };
 
-export { attribute, decodeImage, parseXml, temporaryDirectory };
+const renderPixel = (
+  markup: string,
+  point: { readonly x: number; readonly y: number },
+): Effect.Effect<number[]> =>
+  Effect.promise(async (): Promise<number[]> => {
+    const { data, info }: { data: Buffer; info: OutputInfo } = await Sharp(
+      Buffer.from(markup),
+    )
+      .removeAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    const offset: number = (point.y * info.width + point.x) * info.channels;
+    return [...data.subarray(offset, offset + info.channels)];
+  });
+
+export { attribute, decodeImage, parseXml, renderPixel, temporaryDirectory };

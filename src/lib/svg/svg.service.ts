@@ -1,31 +1,66 @@
+import type { Element } from "@xmldom/xmldom";
 import { Effect } from "effect";
 import { createElement } from "react";
 import { renderToReadableStream } from "react-dom/server.edge";
 import { optimize } from "svgo";
 import { SvgReducedMotionStyle } from "@/components/svg/svg.reduced-motion-style.tsx";
+import { removeInvisiblePaint } from "@/lib/svg/svg.clean.ts";
+import { SvgErrors, SvgOptimizationConfig } from "@/lib/svg/svg.constants.ts";
 import {
-  SvgDataUriConfig,
-  SvgEmbeddedPattern,
-  SvgErrors,
-  SvgOptimizationConfig,
-} from "@/lib/svg/svg.constants.ts";
+  createIdAllocator,
+  parseSvgRoot,
+  serializeSvg,
+} from "@/lib/svg/svg.document.ts";
+import { inlineImages } from "@/lib/svg/svg.layers.ts";
+import { compressRasters } from "@/lib/svg/svg.raster.ts";
+import {
+  pruneKeyframes,
+  readStylesheets,
+  writeStylesheets,
+} from "@/lib/svg/svg.styles.ts";
+import { mergeThemes } from "@/lib/svg/svg.themes.ts";
+
+const ClosingTag = "</svg>";
 
 /**
- * Optimizes a base64-encoded SVG layer by decoding it, applying SVGO
- * optimizations, and returning the optimized SVG as a base64-encoded string.
+ * Flattens the document: every embedded SVG layer is inlined, the paint that
+ * can never be seen is removed, the two themes are merged when they only
+ * differ by colors, and the keyframes left duplicated or unused are pruned.
  *
- * @param {string} encoded - The base64-encoded SVG layer to be optimized.
- * @returns {string} The optimized SVG layer as a base64-encoded string.
+ * @param {Element} root - The document root, edited in place.
  */
-const optimizeLayer = (encoded: string): string => {
-  const source: string = Buffer.from(encoded, "base64").toString("utf8");
-  return optimize(source, SvgDataUriConfig).data;
+const restructure = (root: Element): void => {
+  inlineImages(root, createIdAllocator(root));
+  removeInvisiblePaint(root);
+  mergeThemes(root);
+  const sheets = readStylesheets(root);
+  pruneKeyframes(root, sheets);
+  writeStylesheets(sheets);
 };
 
 /**
- * Optimizes the given SVG string by applying SVGO optimizations and handling
- * embedded base64-encoded SVG layers. The optimization process includes:
- * - Decoding and optimizing any embedded base64-encoded SVG layers.
+ * Renders the stylesheet that disables the animations for users who prefer
+ * reduced motion.
+ *
+ * @returns {Effect.Effect<string, Error>} An effect that resolves to the
+ *   `<style>` markup.
+ */
+const renderReducedMotionStyle = (): Effect.Effect<string, Error> =>
+  Effect.tryPromise({
+    catch: (cause: unknown): Error => new Error(SvgErrors.optimize, { cause }),
+    try: async (): Promise<string> =>
+      await new Response(
+        await renderToReadableStream(createElement(SvgReducedMotionStyle)),
+      ).text(),
+  });
+
+/**
+ * Optimizes the given SVG string. The optimization process includes:
+ * - Inlining the SVG layers and icons embedded as data URIs, so the browser
+ *   parses a single document and the optimizer sees all of it.
+ * - Removing the invisible filters, masks and patterns Satori emits.
+ * - Merging the light and dark themes into one drawing with themed colors.
+ * - Re-encoding embedded PNG images as pixel-identical lossless WebP.
  * - Adding a reduced motion style to the SVG for accessibility.
  * - Applying general SVGO optimizations to the entire SVG.
  *
@@ -34,19 +69,28 @@ const optimizeLayer = (encoded: string): string => {
  *   optimized SVG string or an error if optimization fails.
  */
 const optimizeSvg = (svg: string): Effect.Effect<string, Error> =>
-  Effect.tryPromise({
-    catch: (cause: unknown): Error => new Error(SvgErrors.optimize, { cause }),
-    try: async (): Promise<string> => {
-      const layers: string = svg.replace(
-        SvgEmbeddedPattern,
-        (_match: string, encoded: string): string => optimizeLayer(encoded),
-      );
-      const style: string = await new Response(
-        await renderToReadableStream(createElement(SvgReducedMotionStyle)),
-      ).text();
-      const accessible: string = layers.replace("</svg>", `${style}</svg>`);
-      return optimize(accessible, SvgOptimizationConfig).data;
-    },
+  Effect.gen(function* () {
+    const root: Element = yield* Effect.try({
+      catch: (cause: unknown): Error => new Error(SvgErrors.parse, { cause }),
+      try: (): Element => {
+        const parsed: Element = parseSvgRoot(svg);
+        restructure(parsed);
+        return parsed;
+      },
+    });
+    yield* compressRasters(root);
+    const style: string = yield* renderReducedMotionStyle();
+    const markup: string = serializeSvg(root);
+    const end: number = markup.lastIndexOf(ClosingTag);
+    return yield* Effect.try({
+      catch: (cause: unknown): Error =>
+        new Error(SvgErrors.optimize, { cause }),
+      try: (): string =>
+        optimize(
+          `${markup.slice(0, end)}${style}${markup.slice(end)}`,
+          SvgOptimizationConfig,
+        ).data,
+    });
   });
 
 export { optimizeSvg };

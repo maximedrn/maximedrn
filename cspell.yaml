@@ -19,6 +19,7 @@ words:
   - Filenaming
   - greyscale
   - huggingface
+  - inlines
   - lefthook
   - Maxime
   - maximedrn
@@ -29,3 +30,4 @@ words:
   - renderable
   - Solana
   - turbopack
+  - xlink
