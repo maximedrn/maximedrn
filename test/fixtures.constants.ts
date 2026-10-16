@@ -4,6 +4,8 @@ const DataUri = {
   png: "data:image/png;base64,",
   svg: "data:image/svg+xml,",
   svgBase64: "data:image/svg+xml;base64,",
+  svgMedia: "data:image/svg+xml",
+  webp: "data:image/webp;base64,",
 } as const;
 const Xml = {
   attributes: {
@@ -18,9 +20,14 @@ const Xml = {
   tags: {
     all: "*",
     anchor: "a",
+    filter: "filter",
     group: "g",
     image: "image",
     img: "img",
+    linearGradient: "linearGradient",
+    mask: "mask",
+    path: "path",
+    pattern: "pattern",
     rect: "rect",
     style: "style",
     svg: "svg",

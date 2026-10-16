@@ -2,12 +2,7 @@ import { describe, expect, it } from "bun:test";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { DataUri, Encoding, Files, Xml } from "@test/fixtures.constants.ts";
-import {
-  attribute,
-  decodeImage,
-  parseXml,
-  temporaryDirectory,
-} from "@test/fixtures.ts";
+import { attribute, parseXml, temporaryDirectory } from "@test/fixtures.ts";
 import { coloredImage } from "@test/portrait-fixture.ts";
 import { ProfileCases, ProfileExpected } from "@test/profile.constants.ts";
 import type { Element } from "@xmldom/xmldom";
@@ -47,8 +42,8 @@ describe(ProfileCases.suite, (): void => {
             expect(Number(attribute(svg, Xml.attributes.width))).toBe(
               ProfileExpected.width,
             );
-            const themes: string[] = Array.from(
-              svg.getElementsByTagName(Xml.tags.group),
+            const classes: string[] = Array.from(
+              svg.getElementsByTagName(Xml.tags.all),
             )
               .filter((element: Element): boolean =>
                 element.hasAttribute(Xml.attributes.className),
@@ -56,27 +51,23 @@ describe(ProfileCases.suite, (): void => {
               .map((element: Element): string =>
                 attribute(element, Xml.attributes.className),
               );
-            expect(themes).toEqual(
-              expect.arrayContaining([...ProfileExpected.themes]),
-            );
-            const images: Element[] = Array.from(
+            for (const theme of ProfileExpected.themes)
+              expect(classes).not.toContain(theme);
+            expect(markup).toContain(ProfileExpected.darkMedia);
+            const sources: string[] = Array.from(
               svg.getElementsByTagName(Xml.tags.image),
+              (image: Element): string => attribute(image, Xml.attributes.href),
             );
-            expect(images.length).toBeGreaterThan(0);
-            let portraits: number = 0;
-            for (const image of images) {
-              const layer: Element = parseXml(
-                decodeImage(attribute(image, Xml.attributes.href)).toString(
-                  Encoding.utf8,
-                ),
-              );
-              const nested: Element[] = Array.from(
-                layer.getElementsByTagName(Xml.tags.image),
-              );
-              portraits += nested.filter((element: Element): boolean =>
-                attribute(element, Xml.attributes.href).startsWith(DataUri.png),
-              ).length;
-            }
+            expect(
+              sources.some((href: string): boolean =>
+                href.startsWith(DataUri.svgMedia),
+              ),
+            ).toBe(false);
+            const portraits: number = sources.filter((href: string): boolean =>
+              ProfileExpected.rasters.some((prefix: string): boolean =>
+                href.startsWith(prefix),
+              ),
+            ).length;
             expect(portraits).toBeGreaterThan(0);
           }),
         ),

@@ -71,7 +71,7 @@ describe(LoaderCases.suite, (): void => {
               addDependency: (): void => undefined,
               resourcePath: join(directory, LoaderFiles.source),
             };
-            const failure: Cause.UnknownException = yield* Effect.flip(
+            const failure: Cause.UnknownError = yield* Effect.flip(
               Effect.try((): string => themeLoader.call(context)),
             );
             expect(failure.cause).toBeInstanceOf(Error);
