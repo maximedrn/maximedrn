@@ -1,18 +1,5 @@
 import { type Animation, Easing } from "@maximedrn/react-to-svg";
 
-const AvailabilityPulse: Animation = {
-  delayMs: 0,
-  durationMs: 2200,
-  easing: Easing.easeInOut,
-  keyframes: [
-    { at: 0, opacity: 1, scale: 1 },
-    { at: 0.5, opacity: 0.4, scale: 0.8 },
-    { at: 1, opacity: 1, scale: 1 },
-  ],
-  perspective: 800,
-  repeat: Number.POSITIVE_INFINITY,
-};
-
 const PortraitEntrance: Animation = {
   delayMs: 160,
   durationMs: 900,
@@ -53,12 +40,11 @@ const SectionEntrance: Animation = {
 };
 
 const ReadmeAnimations = {
-  availabilityPulse: AvailabilityPulse,
   portraitDrift: PortraitDrift,
   portraitEntrance: PortraitEntrance,
   sectionEntrance: SectionEntrance,
 } as const;
 
-const ReadmeTimings = { about: 180, footer: 540, stack: 360 } as const;
+const ReadmeTimings = { footer: 360, stack: 180 } as const;
 
 export { ReadmeAnimations, ReadmeTimings };

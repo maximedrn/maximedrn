@@ -1,6 +1,5 @@
 import { Animated, Delay } from "@maximedrn/react-to-svg";
 import type { ReactNode } from "react";
-import { ReadmeAbout } from "@/components/readme/readme.about.tsx";
 import {
   ReadmeAnimations,
   ReadmeTimings,
@@ -26,14 +25,6 @@ const ReadmeRoot = (props: ReadmeRootProps): ReactNode => (
     )}
   >
     <ReadmeHero portrait={props.portrait} />
-    <Delay byMs={ReadmeTimings.about}>
-      <Animated
-        animation={ReadmeAnimations.sectionEntrance}
-        className={cn("w-full")}
-      >
-        <ReadmeAbout />
-      </Animated>
-    </Delay>
     <Delay byMs={ReadmeTimings.stack}>
       <Animated
         animation={ReadmeAnimations.sectionEntrance}
